@@ -22,6 +22,14 @@ todoRouter.post('/', async (req, res) => {
     res.send(todo);
 });
 
+todoRouter.get('/', async (req, res) => {
+    const { id: userId } = req.user;
+    const todosDb = await readTodos();  
+    const todos = Object.values(todosDb);
+    const myTodos = todos.filter(todo => todo.userId === userId);
+    res.send(myTodos);
+});
+
 module.exports = {
     todoRouter
 };
