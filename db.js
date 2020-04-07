@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
 
-const USERS_DB_PATH = path.join(__dirname, 'users.json');
-const TODOS_DB_PATH = path.join(__dirname, 'todos.json');
+const USERS_DB_PATH = path.join(__dirname, 'data/users.json');
+const TODOS_DB_PATH = path.join(__dirname, 'data/todos.json');
 
 const writeFile = promisify(fs.writeFile); // fs.writeFile(path, content, (err) => {...}) => await writeFile(path, content);
 const readFile = promisify(fs.readFile); // fs.readFile(path, {encoding: 'UTF-8'}, (err, content) => {...}) => const content = await readFile(path, {encoding: 'UTF-8'});
