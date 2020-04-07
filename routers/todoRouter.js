@@ -5,8 +5,9 @@ const { Todo } = require('../models/Todo');
 const todoRouter = Router();
 
 todoRouter.post('/', async (req, res) => {
+    const { id: userId } = req.user;
     const { description, date } = req.body;
-    const todo = new Todo(description, date);
+    const todo = new Todo(description, date, userId);
 
     const errors = todo.validate();
     if (errors.length) {

@@ -1,10 +1,10 @@
 const {v4: uuid} = require('uuid');
 
 class Todo {    
-    constructor(description, date) {
+    constructor(description, date, userId) {
         this.description = description && description.toString().trim();
         this.date = date;
-        this.userId = 'some-user-id';
+        this.userId = userId;
         this.id = uuid();
         this.isComplete = false;
     }
