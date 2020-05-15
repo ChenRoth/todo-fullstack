@@ -10,7 +10,7 @@ const app = express();
 const PORT = 3001;
 
 app.use(cors());
-app.use(expressJwt({secret: process.env.JWT_SECRET}).unless({path: ['/users/login']})); 
+app.use(expressJwt({secret: process.env.JWT_SECRET}).unless({path: ['/users/register', '/users/login']})); 
 app.use(express.json());
 app.use('/users', userRouter);
 app.use('/todos', todoRouter);
